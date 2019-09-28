@@ -79,11 +79,6 @@ module Frontend
         .uniq.to_h.sort
     end
 
-    # used by player
-    def videos_sorted_by_language
-      self.recordings.video.sort_by { |x| (x.language == self.original_language ? 0 : 2) + (x.html5 ? 0 : 1) }
-    end
-
     # used for the hd and sd download buttons
     def video_for_download(filetype, high_quality: true)
       self.recordings.video_without_slides
